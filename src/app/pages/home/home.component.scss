@@ -1,0 +1,30 @@
+.card-produto {
+    display: grid;
+    justify-content: center;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  background-color: white;
+  img {
+    width: 10rem;
+    
+  }
+}
+
+.container {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  display: grid;
+  background-color: rgb(189, 189, 189);
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.between{
+    display: flex;
+    justify-content: space-around;
+}

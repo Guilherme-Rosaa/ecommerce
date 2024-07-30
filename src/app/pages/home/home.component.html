@@ -1,0 +1,29 @@
+<div class="container">
+
+
+<ng-container *ngFor="let produto of produtos">
+<div class="card-produto">
+    <div class="row">
+        <label>{{produto.title}}</label>
+
+    </div>
+    <!-- <div class="row">
+        <label>{{produto.description}}</label>
+    </div> -->
+
+
+    <div class="row">
+        <img [src]="produto.image" alt="">
+
+    </div>
+    <div class="between">
+        <label>{{produto.price}}</label>
+
+        <app-avaliacao [avaliacao]="produto.rating.rate" [quantidade]="5"></app-avaliacao>
+
+        <!-- <label>{{produto.rating.rate}}</label> -->
+    </div>
+</div>
+</ng-container>
+
+</div>

@@ -1,0 +1,10 @@
+<div class="star-rating" [ngbTooltip]="htmlContent">
+    <i class="fa fa-star" *ngFor="let star of stars"></i>
+    <i class="fa fa-star-half" *ngIf="avaliacao % 1 !== 0"></i>
+</div>
+
+
+
+<ng-template #htmlContent>
+    <label>{{quantidade}}</label>
+</ng-template>
