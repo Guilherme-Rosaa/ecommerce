@@ -1,0 +1,70 @@
+.container {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+
+  &-produto {
+    width: 80%;
+  }
+}
+
+.detalhes {
+  display: flex;
+  justify-content: space-between;
+  &-compra {
+    width: 60%;
+    padding: 2rem;
+  }
+  &-imagem {
+    width: 40%;
+    align-content: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.btn-carrinho {
+  height: 4rem;
+  background-color: rgb(169, 165, 165);
+  border: 1px solid rgb(56, 56, 56);
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+}
+
+.carousel {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-item {
+  min-width: 33.33%;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+
+button {
+  background-color: transparent;
+
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 20px;
+}
+
+.infos-produto-detalhes {
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+}
+
+.produtos-similares-titulo {
+  padding-left: 10px;
+}

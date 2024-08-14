@@ -1,0 +1,14 @@
+<div #cardProduto class="card-produto">
+  <div class="row">
+      <label class="nome-produto">{{produto.title}}</label>
+  </div>
+
+  <div class="row container-imagem">
+      <img [src]="produto.image" alt="Imagem-produto">
+  </div>
+
+  <div [ngStyle]="{ display: width > 200 ? 'flex' : 'initial' }" #containerAvaliacao class="container-avaliacao">
+        <app-avaliacao [avaliacao]="produto.rating.rate" [quantidade]="produto.rating.count"></app-avaliacao>
+    <h2 class="preco">{{formatarMoeda(produto.price)}}</h2>
+  </div>
+</div>

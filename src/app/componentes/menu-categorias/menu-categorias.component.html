@@ -1,0 +1,8 @@
+<div class="categorias">
+  <ng-container *ngFor="let categori of categorias">
+    <div [ngClass]="categori == categoria ?'categorias-selected-card': 'categorias-card' " (click)="selecionaCategoria(categori)" >
+      <img [src]="buscarIconeCategoria(categori)">
+      <label>{{categori}}</label>
+    </div>
+  </ng-container>
+</div>

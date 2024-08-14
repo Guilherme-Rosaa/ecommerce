@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="container-produto">
+
+    <button style="padding: 0;" (click)="voltarOuRedirecionar()"><img src="../../../assets/icons/icon-flecha-voltar.svg"
+        alt="Voltar"></button>
+    <h1>{{produto.title}}</h1>
+    <div class="detalhes">
+      <div class="detalhes-imagem">
+        <img [src]="produto.image" alt="">
+      </div>
+      <div class="detalhes-compra">
+
+        <div class="infos-produto">
+          <div class="infos-produto-detalhes">
+            <h2>{{formatarMoeda(produto.price)}}</h2>
+            <app-avaliacao [avaliacao]="avaliacao" [quantidade]="quantidadeAvaliacao"></app-avaliacao>
+
+          </div>
+        </div>
+
+        <div>
+          <div class="carousel-container">
+            <button (click)="previous()">&#10094;</button>
+            <div class="produtos-similares">
+              <h3 class="produtos-similares-titulo">SIMILAR PRODUCTS</h3>
+              <div class="carousel">
+                <ng-container *ngFor="let prodCategoria of produtosCategoria; let i = index">
+                  <div *ngIf="i >= currentIndex && i < currentIndex + 3" class="carousel-item">
+                    <app-cartao-produto (click)="navegarParaDetalhes(prodCategoria)"
+                      [produto]="prodCategoria"></app-cartao-produto>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+
+            <button (click)="next()">&#10095;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="produto">
+      <app-descricao-produto [descricao]="produto.description"></app-descricao-produto>
+    </div>
+  </div>
+</div>

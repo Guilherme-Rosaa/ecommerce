@@ -1,0 +1,15 @@
+<div class="carrossel">
+  <div class="imagens">
+    <ng-container *ngIf="midias[imagemAtualIndex].tipo === 'imagem'">
+      <img [src]="midias[imagemAtualIndex].src" alt="Imagem do carrossel">
+    </ng-container>
+    <ng-container *ngIf="midias[imagemAtualIndex].tipo === 'video'">
+      <div class="video-container" [ngClass]="{'theater-mode': isTheaterMode}">
+        <video autoplay loop muted #videoPlayer>
+          <source [src]="midias[imagemAtualIndex].src" type="video/mp4">
+          Seu navegador não suporta a tag de vídeo.
+        </video>
+      </div>
+    </ng-container>
+  </div>
+</div>

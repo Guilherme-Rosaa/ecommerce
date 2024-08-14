@@ -1,29 +1,21 @@
 <div class="container">
+  <app-carrossel-imagens
+    [midias]="[
+      { src: '../../../assets/videos/Plano de Fundo Para Vídeo Rabiscos Modernos Cor e Estilo Bege Verde Preto.mp4', tipo: 'video' },
+    ]">
+  </app-carrossel-imagens>
 
-
-<ng-container *ngFor="let produto of produtos">
-<div class="card-produto">
-    <div class="row">
-        <label>{{produto.title}}</label>
-
+  <div class="mae">
+    <div class="filho">
+      <div>
+      <app-menu-categorias (retornaProdutos)="lidarComValorEmitido($event)"></app-menu-categorias>
     </div>
-    <!-- <div class="row">
-        <label>{{produto.description}}</label>
-    </div> -->
 
-
-    <div class="row">
-        <img [src]="produto.image" alt="">
-
+    <div class="container-card">
+      <ng-container *ngFor="let produto of produtos">
+        <app-cartao-produto (click)="navegarParaDetalhes(produto)" [produto]="produto"></app-cartao-produto>
+      </ng-container>
     </div>
-    <div class="between">
-        <label>{{produto.price}}</label>
-
-        <app-avaliacao [avaliacao]="produto.rating.rate" [quantidade]="5"></app-avaliacao>
-
-        <!-- <label>{{produto.rating.rate}}</label> -->
     </div>
-</div>
-</ng-container>
-
+  </div>
 </div>

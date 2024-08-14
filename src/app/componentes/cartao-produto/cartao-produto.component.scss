@@ -1,0 +1,61 @@
+.card-produto {
+  display: grid;
+  justify-content: center;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: white;
+  img {
+    width: 8rem;
+  }
+
+  .nome-produto {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    color: rgb(66, 70, 77);
+    min-height: 3.375rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  }
+
+  .card-rodape {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+
+  .container-avaliacao {
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  @media (max-width: 600px) {
+    .container-avaliacao {
+      display: block;
+    }
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.container-imagem {
+  min-height: 13rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.preco {
+  margin: 0;
+}
