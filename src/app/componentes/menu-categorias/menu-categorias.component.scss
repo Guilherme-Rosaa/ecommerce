@@ -4,6 +4,10 @@
   justify-content: space-around;
   margin-bottom: 2rem;
 
+  p{
+    margin: 0;
+  }
+
   &-card {
     padding: 1rem;
     border-radius: 10px;
@@ -13,12 +17,23 @@
     align-content: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 20px;
-    background-color: white
+    background-color: white;
+    cursor: pointer;
+  }
+
+  &-card:hover{
+    background-color: rgb(223, 223, 223);
   }
 
   &-selected-card {
     @extend .categorias-card;
     background-color: #7b9d87;
-    box-shadow: 0px 0px 24px -5px rgba(0, 0, 0, 0.75)
+    box-shadow: 0px 0px 24px -5px rgba(0, 0, 0, 0.75);
+  }
+
+  &-selected-card:hover {
+    @extend .categorias-card;
+    background-color: #64806e;
+    box-shadow: 0px 0px 24px -5px rgba(0, 0, 0, 0.75);
   }
 }
