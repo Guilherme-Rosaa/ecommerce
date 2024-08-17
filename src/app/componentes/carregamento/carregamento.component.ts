@@ -12,12 +12,8 @@ import { CommonModule } from '@angular/common';
 })
 export class CarregamentoComponent {
   loading: boolean = false;
-  message: string = 'Loading...';
 
-  constructor(
-    private loadingService: LoadingService
-  ) {
-
+  constructor(private loadingService: LoadingService) {
     this.loadingService.getIsLoading().subscribe((isLoading: boolean) => {
       this.loading = isLoading;
     });
