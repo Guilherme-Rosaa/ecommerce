@@ -1,10 +1,8 @@
-<div class="star-rating" [ngbTooltip]="htmlContent">
+<div class="star-rating" data-toggle="tooltip" data-placement="top" title="Tooltip na parte superior">
     <i class="fa fa-star" *ngFor="let star of stars"></i>
     <i class="fa fa-star-half" *ngIf="avaliacao % 1 !== 0"></i>
+
+    <img src="../../../assets/icons/icon-avaliacao-quantidade.svg" alt="">
+    <span>{{quantidade}}</span>
 </div>
 
-
-
-<ng-template #htmlContent>
-    <label>{{quantidade}}</label>
-</ng-template>

@@ -5,6 +5,10 @@
   margin-bottom: 1rem;
   padding: 1rem;
   background-color: white;
+  max-width: 15rem;
+  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   img {
     width: 8rem;
   }
@@ -14,17 +18,12 @@
   }
 
   .nome-produto {
-    font-size: 0.875rem;
-    line-height: 1.125rem;
-    font-weight: 600;
-    margin-top: 0.5rem;
-    color: rgb(66, 70, 77);
-    min-height: 3.375rem;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    white-space: normal;
+    font-size: 1rem;
+    color: #444444d9;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     max-width: 12rem;
   }
 
   .card-rodape {
@@ -33,22 +32,20 @@
     align-items: center;
   }
 
-  .container-avaliacao {
-    justify-content: space-around;
+  .container-preco {
+    margin-top: 2rem;
+    justify-content: space-between;
     align-items: center;
+    display: flex;
   }
 
   @media (max-width: 600px) {
-    .container-avaliacao {
+    .container-preco {
       display: block;
     }
   }
 }
 
-.card-produto:hover{
-  background-color: rgb(223, 223, 223);
-  cursor: pointer;
-}
 
 .row {
   display: flex;
@@ -67,4 +64,40 @@
 
 .preco {
   margin: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #444444d9;
+}
+
+
+.custom-modal {
+  max-width: 800px !important;
+  width: 80% !important;
+  height: auto !important;
+  margin: auto;
+
+}
+
+
+::ng-deep .cdk-overlay-pane.mat-mdc-dialog-panel {
+  max-width: 1000px !important;
+  min-width: var(--mat-dialog-container-min-width, 0);
+}
+
+
+.btn-detalhes{
+  border: none;
+  border-radius: 5px;
+  background-color: #7b9d87;
+  width: 3rem;
+  height: 2rem;
+  color: rgba(68, 68, 68, 0.8509803922);
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+
+.btn-detalhes:hover{
+  background-color: #698472;
+  color: rgb(223, 223, 223);
 }

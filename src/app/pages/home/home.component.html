@@ -1,21 +1,23 @@
+<app-menu-categorias (retornaProdutos)="lidarComValorEmitido($event)"></app-menu-categorias>
+<div style="background-color: #dddcd8;">
 <div class="container">
-  <app-carrossel-imagens
+  <!-- <app-carrossel-imagens
     [midias]="[
       { src: '../../../assets/videos/Plano de Fundo Para Vídeo Rabiscos Modernos Cor e Estilo Bege Verde Preto.mp4', tipo: 'video' },
     ]">
-  </app-carrossel-imagens>
+  </app-carrossel-imagens> -->
 
   <div class="mae">
     <div class="filho">
       <div>
-      <app-menu-categorias (retornaProdutos)="lidarComValorEmitido($event)"></app-menu-categorias>
     </div>
 
     <div class="container-card">
       <ng-container *ngFor="let produto of produtos">
-        <app-cartao-produto (click)="navegarParaDetalhes(produto)" [produto]="produto"></app-cartao-produto>
+        <app-cartao-produto [produto]="produto"></app-cartao-produto>
       </ng-container>
     </div>
     </div>
   </div>
+</div>
 </div>

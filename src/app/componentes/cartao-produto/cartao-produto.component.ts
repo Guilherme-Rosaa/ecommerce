@@ -3,11 +3,13 @@ import { AvaliacaoComponent } from '../avaliacao/avaliacao.component';
 import { Produto } from '../../modelos/produto';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { DetalhesProdutoComponent } from '../../pages/detalhes-produto/detalhes-produto.component';
 
 @Component({
   selector: 'app-cartao-produto',
   standalone: true,
-  imports: [AvaliacaoComponent,CommonModule ],
+  imports: [AvaliacaoComponent,CommonModule, MatDialogModule],
   templateUrl: './cartao-produto.component.html',
   styleUrl: './cartao-produto.component.scss'
 })
@@ -15,8 +17,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 export class CartaoProdutoComponent {
   @ViewChild('cardProduto') cardProduto!: ElementRef;
-  @Input() produto!: Produto ;
+  @Input() produto!: any ;
   width: any;
+
+  constructor(private dialog: MatDialog) {}
 
   formatarMoeda(valor: number): string {
     return new Intl.NumberFormat('pt-BR', {
@@ -25,11 +29,14 @@ export class CartaoProdutoComponent {
     }).format(valor);
   }
 
-  ngAfterViewInit() {
-    window.onload = () => {
-      const element = this.cardProduto.nativeElement;
-      this.width = element.getBoundingClientRect().width;
-    };
+  abriModalDetalhes(){
+    console.log("AQUI");
+
+    this.dialog.open(DetalhesProdutoComponent, {
+      width: '80%',
+      panelClass: 'custom-modal',
+      data: { id: this.produto.id }
+    });
   }
 }
 

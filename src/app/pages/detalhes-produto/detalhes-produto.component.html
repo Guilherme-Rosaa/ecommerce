@@ -1,46 +1,72 @@
-<div class="container">
+<div style="width: 1000px; padding: 3rem;">
   <div class="container-produto">
-
-    <button style="padding: 0;" (click)="voltarOuRedirecionar()"><img src="../../../assets/icons/icon-flecha-voltar.svg"
-        alt="Voltar"></button>
-    <h1>{{produto.title}}</h1>
-    <div class="detalhes">
-      <div class="detalhes-imagem">
-        <img [src]="produto.image" alt="">
+      <div class="detalhes">
+        <div class="detalhes-imagem">
+          <img [src]="produto.image" alt="">
       </div>
       <div class="detalhes-compra">
-
-        <div class="infos-produto">
-          <div class="infos-produto-detalhes">
-            <h2>{{formatarMoeda(produto.price)}}</h2>
-            <app-avaliacao [avaliacao]="avaliacao" [quantidade]="quantidadeAvaliacao"></app-avaliacao>
-
-          </div>
-        </div>
+        <div class="titulo-produto">{{produto.title}}</div>
+        <p>{{produto.description}}</p>
 
         <div>
-          <div class="carousel-container">
-            <button (click)="previous()">&#10094;</button>
-            <div class="produtos-similares">
-              <h3 class="produtos-similares-titulo">SIMILAR PRODUCTS</h3>
-              <div class="carousel">
-                <ng-container *ngFor="let prodCategoria of produtosCategoria; let i = index">
-                  <div *ngIf="i >= currentIndex && i < currentIndex + 3" class="carousel-item">
-                    <app-cartao-produto (click)="navegarParaDetalhes(prodCategoria)"
-                      [produto]="prodCategoria"></app-cartao-produto>
-                  </div>
-                </ng-container>
-              </div>
-            </div>
+          <div style="align-content: center; align-items: center;" class="d-flex">
+            <div class="preco">
+              <app-avaliacao [avaliacao]="produto.rating.rate" [quantidade]="produto.rating.count"></app-avaliacao>
 
-            <button (click)="next()">&#10095;</button>
+              {{formatarMoeda(produto.price)}}
+
+            </div>
+            <!-- <div style="display: flex; margin-left: 1rem;">
+              <div >
+                <button (click)="quantidade = quantidade - 1" class="btn-quantidades">
+                  -
+                </button>
+              </div>
+              <div>
+                <input class="input-quantidade" type="text" [(ngModel)]="quantidade">
+              </div>
+              <div >
+                <button (click)="quantidade = quantidade + 1" class="btn-quantidades">
+                  +
+                </button>
+              </div>
+            </div> -->
           </div>
+
+          <div class="d-flex m-3">
+            <button class="btn-carrinho" (click)="adicionarCarrinho()">Adicionar ao carrinho</button>
+          </div>
+
+        </div>
+
+        <div class="d-flex mt-4 semelhantes">
+          <ng-container *ngFor="let prodCategoria of produtosCategoria; let i = index">
+            <ng-container *ngIf="prodCategoria">
+              <div (click)="abriModalDetalhes(prodCategoria.id)" #cardProduto class="card-produto">
+                <div class="row container-imagem">
+                    <img [src]="prodCategoria.image" alt="Imagem-produto">
+                </div>
+                <div class="row">
+                    <p class="nome-produto">{{prodCategoria.title}}</p>
+                    <app-avaliacao [avaliacao]="prodCategoria.rating.rate" [quantidade]="prodCategoria.rating.count"></app-avaliacao>
+                </div>
+                <div  #containerAvaliacao class="container-preco">
+                  <span class="preco-produto">{{formatarMoeda(prodCategoria.price)}}</span>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
         </div>
       </div>
-    </div>
-
-    <div *ngIf="produto">
-      <app-descricao-produto [descricao]="produto.description"></app-descricao-produto>
-    </div>
   </div>
 </div>
+
+<ng-template #avisoCarrinho>
+  <h2 mat-dialog-title>Aviso</h2>
+  <mat-dialog-content>
+    <p>Essa funcionalidade ainda não foi adicionada, mas em breve ela existirá!</p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button class="btn-carrinho" mat-button mat-dialog-close>Entendi</button>
+  </mat-dialog-actions>
+</ng-template>

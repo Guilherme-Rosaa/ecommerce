@@ -21,7 +21,6 @@ export class ProdutosService {
   }
 
   buscarCategorias(){
-
     return this.http.get("https://fakestoreapi.com/products/categories");
   }
 }

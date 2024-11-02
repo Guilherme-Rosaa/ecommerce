@@ -1,7 +1,6 @@
 <div class="categorias">
   <ng-container *ngFor="let categori of categorias">
-    <div [ngClass]="categori == categoria ?'categorias-selected-card': 'categorias-card' " (click)="selecionaCategoria(categori)" >
-      <img [src]="buscarIconeCategoria(categori)">
+    <div class="categorias-card" (click)="selecionaCategoria(categori)" >
       <p>{{categori.toUpperCase()}}</p>
     </div>
   </ng-container>
